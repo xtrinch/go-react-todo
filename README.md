@@ -8,8 +8,8 @@ HTTP framework used is [gin-gonic/gin](https://github.com/gin-gonic/gin).
 
 ## Requirements
 
-    - docker
-    - docker-compose
+- docker
+- docker-compose
 
 ## Development setup:
 
@@ -23,8 +23,8 @@ Access the todo API via port 8080.
 
 ## API endpoints
 
-    - GET api/v1/todos/
-    - GET api/v1/todos/:id
-    - POST api/v1/todos
-    - PUT api/v1/todos/:id
-    - DELETE api/v1/todos/:id
+- GET api/v1/todos/
+- GET api/v1/todos/:id
+- POST api/v1/todos
+- PUT api/v1/todos/:id
+- DELETE api/v1/todos/:id
