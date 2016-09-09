@@ -9,10 +9,11 @@ var BUILD_DIR = path.resolve(__dirname, 'build');
 var APP_DIR = path.resolve(__dirname, 'src');
 
 var config = {
-    entry: [
+    /*entry: [
         'webpack-dev-server/client?http:0.0.0.0:9000',
         path.join(APP_DIR + '/index.jsx')
-    ],
+    ],*/
+    entry: path.join(APP_DIR + '/index.jsx'),
     output: {
         path: BUILD_DIR,
         filename: 'bundle.js'
@@ -54,8 +55,7 @@ var config = {
           }
         },
         host: '0.0.0.0',
-        port: '3000',
-        inline: true
+        port: '3000'
     }
 };
 

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js",
-    "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot"
+    "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   },
   "keywords": [
     "go",
