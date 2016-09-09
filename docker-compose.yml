@@ -13,3 +13,13 @@ services:
             - "8080:3000"
         environment:
             - POSTGRES_PASSWORD=postgres
+    client:
+        build: ./client
+        command: npm start
+        volumes:
+            - ./client:/usr/src/app
+            # mount node_modules as a workaround for it disappearing
+            # after adding /client as a mounted folder
+            - /usr/src/app/node_modules
+        ports:
+            - "9000:3000"
