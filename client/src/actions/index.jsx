@@ -32,7 +32,7 @@ export const receiveTodos = (json) => {
     return {
         type: 'RECEIVE_TODOS',
         todos: json,
-        receivedAt: Date.now()
+        updatedAt: Date.now()
     }
 }
 

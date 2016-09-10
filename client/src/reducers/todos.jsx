@@ -31,6 +31,15 @@ const todos = (state = [], action) => {
       return state.map(t =>
         todo(t, action)
       )
+    case 'RECEIVE_TODOS':
+        var s = Object.assign({}, state, {
+            isFetching: false,
+            todos: action.todos,
+            updatedAt: action.updatedAt
+          })
+
+        console.log(s)
+        return s
     default:
       return state
   }
