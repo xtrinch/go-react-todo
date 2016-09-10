@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-fetch';
+
 let nextTodoId = 0
 export const addTodo = (text) => {
   return {
@@ -6,6 +8,43 @@ export const addTodo = (text) => {
     text
   }
 }
+
+export const deleteTodo = (id) => {
+    return {
+        type: 'DELETE_TODO',
+        id: id
+    }
+}
+
+export const clearTodo = () => {
+    return {
+        type: 'CLEAR_TODO'
+    }
+}
+
+export const requestTodos = () => {
+    return {
+        type: 'REQUEST_TODOS'
+    }
+}
+
+export const receiveTodos = () => {
+    return {
+        type: 'RECEIVE_TODOS',
+        todos: json.data,
+        receivedAt: Date.now()
+    }
+}
+
+export const getTodos = () => {
+    return dispatch => {
+        dispatch(requestTodos()),
+        fetch(`/api/v1/todos/`)
+            .then(req => req.json())
+            .then(json => dispatch(receivePosts(json)));
+  }
+}
+
 
 export const setVisibilityFilter = (filter) => {
   return {
