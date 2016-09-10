@@ -50,7 +50,8 @@ var config = {
     devServer: {
         proxy: {
           '/api/**': {
-            target: 'http://0.0.0.0:8080',
+            // take advantage of docker-compose linking containers - server is accessible with hostname server
+            target: 'http://server:3000',
             secure: false
           }
         },

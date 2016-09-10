@@ -28,10 +28,10 @@ export const requestTodos = () => {
     }
 }
 
-export const receiveTodos = () => {
+export const receiveTodos = (json) => {
     return {
         type: 'RECEIVE_TODOS',
-        todos: json.data,
+        todos: json,
         receivedAt: Date.now()
     }
 }
@@ -41,7 +41,7 @@ export const getTodos = () => {
         dispatch(requestTodos()),
         fetch(`/api/v1/todos/`)
             .then(req => req.json())
-            .then(json => dispatch(receivePosts(json)));
+            .then(json => dispatch(receiveTodos(json)));
   }
 }
 
