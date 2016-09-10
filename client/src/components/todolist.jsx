@@ -5,13 +5,6 @@ class TodoList extends React.Component {
     render() {
         const { todos, onTodoClick } = this.props
         console.log(this.props)
-        /*this.props.todos = [
-            {
-                "title": "test",
-                "id": 1,
-                "completed": false
-            }
-        ]*/
         return (
             <ul>
               {todos.map(todo =>
@@ -41,8 +34,8 @@ class TodoList extends React.Component {
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
-    title: PropTypes.bool.isRequired,
-    text: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    completed: PropTypes.bool.isRequired
   }).isRequired).isRequired,
   onTodoClick: PropTypes.func.isRequired
 }

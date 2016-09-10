@@ -3,7 +3,7 @@ const todo = (state = {}, action) => {
     case 'ADD_TODO':
       return {
         id: action.id,
-        text: action.text,
+        title: action.text,
         completed: false
       }
     case 'TOGGLE_TODO':
@@ -32,14 +32,7 @@ const todos = (state = [], action) => {
         todo(t, action)
       )
     case 'RECEIVE_TODOS':
-        var s = Object.assign({}, state, {
-            isFetching: false,
-            todos: action.todos,
-            updatedAt: action.updatedAt
-          })
-
-        console.log(s)
-        return s
+        return action.todos
     default:
       return state
   }
