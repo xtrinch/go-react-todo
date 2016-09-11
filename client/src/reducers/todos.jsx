@@ -7,10 +7,9 @@ const todo = (state = {}, action) => {
         completed: false
       }
     case 'TOGGLE_TODO':
-      if (state.id !== action.id) {
+      if (state.id !== action.todo.id) {
         return state
       }
-
       return Object.assign({}, state, {
         completed: !state.completed
       })
@@ -31,8 +30,26 @@ const todos = (state = [], action) => {
       return state.map(t =>
         todo(t, action)
       )
+    case 'RECEIVE_TODO':
+        return [
+            ...state,
+            action.todo
+        ]
     case 'RECEIVE_TODOS':
         return action.todos
+    case 'RECEIVE_DELETE_TODO':
+        return state.filter(function(item) {
+            return item.id != action.id
+        })
+    case 'RECEIVE_UPDATE_TODO':
+        var updated_array =
+            state.filter(function(item) {
+                if (item.id == action.todo.id) {
+                    item.completed = action.todo.completed
+                }
+                return true
+            })
+        return updated_array
     default:
       return state
   }

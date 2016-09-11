@@ -2,17 +2,68 @@ import fetch from 'isomorphic-fetch';
 
 let nextTodoId = 0
 export const addTodo = (text) => {
-  return {
-    type: 'ADD_TODO',
-    id: nextTodoId++,
-    text
-  }
+    return dispatch => {
+      dispatch(sendTodo()),
+      fetch(`/api/v1/todos/`, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              title: text
+          })
+      })
+          .then(req => req.json())
+          .then(json => dispatch(receiveTodo(json)));
+    }
+}
+
+export const sendTodo = () => {
+    return {
+        type: 'SEND_TODO'
+    }
+}
+
+export const receiveTodo = (json) => {
+    return {
+        type: 'RECEIVE_TODO',
+        todo: json
+    }
 }
 
 export const deleteTodo = (id) => {
+    return dispatch => {
+        dispatch(sendTodo()),
+        fetch(`/api/v1/todos/`+id, {
+            method: 'DELETE'
+        }).then(dispatch(receiveDeleteTodo(id)));
+    }
+}
+
+export const receiveDeleteTodo = (id) => {
     return {
-        type: 'DELETE_TODO',
+        type: 'RECEIVE_DELETE_TODO',
         id: id
+    }
+}
+
+export const updateTodo = (todo) => {
+    return dispatch => {
+        dispatch(toggleTodo(todo)),
+        fetch(`/api/v1/todos/`+todo.id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(todo)
+        }).then(dispatch(receiveUpdateTodo(todo)));
+    }
+}
+
+export const receiveUpdateTodo = (todo) => {
+    return {
+        type: 'RECEIVE_UPDATE_TODO',
+        todo: todo
     }
 }
 
@@ -42,7 +93,7 @@ export const getTodos = () => {
         fetch(`/api/v1/todos/`)
             .then(req => req.json())
             .then(json => dispatch(receiveTodos(json)));
-  }
+    }
 }
 
 
@@ -53,9 +104,9 @@ export const setVisibilityFilter = (filter) => {
   }
 }
 
-export const toggleTodo = (id) => {
+export const toggleTodo = (todo) => {
   return {
     type: 'TOGGLE_TODO',
-    id
+    todo: todo
   }
 }
