@@ -1,0 +1,6 @@
+version: '2'
+
+services:
+    server:
+        build: ./server
+        dockerfile: ./server/Dockerfile.prod

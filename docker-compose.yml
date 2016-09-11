@@ -23,3 +23,5 @@ services:
             - /usr/src/app/node_modules
         ports:
             - "9000:3000"
+        environment:
+            - NODE_ENV=development

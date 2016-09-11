@@ -9,10 +9,6 @@ var BUILD_DIR = path.resolve(__dirname, 'build');
 var APP_DIR = path.resolve(__dirname, 'src');
 
 var config = {
-    /*entry: [
-        'webpack-dev-server/client?http:0.0.0.0:9000',
-        path.join(APP_DIR + '/index.jsx')
-    ],*/
     entry: path.join(APP_DIR + '/index.jsx'),
     output: {
         path: BUILD_DIR,
