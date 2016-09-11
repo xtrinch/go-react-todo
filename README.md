@@ -13,8 +13,8 @@ database (postgres), backend (Go) and frontend (React).
 
 ## Requirements
 
-    - docker
-    - docker-compose
+- docker
+- docker-compose
 
 ## Development setup:
 
@@ -35,8 +35,8 @@ webpack conifig.
 
 ## API endpoints
 
-    - GET api/v1/todos/
-    - GET api/v1/todos/:id
-    - POST api/v1/todos
-    - PUT api/v1/todos/:id
-    - DELETE api/v1/todos/:id
+- **GET** api/v1/todos/
+- **GET** api/v1/todos/:id
+- **POST** api/v1/todos
+- **PUT** api/v1/todos/:id
+- **DELETE** api/v1/todos/:id
