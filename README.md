@@ -1,4 +1,4 @@
-# go-todo
+# go-react-todo
 
 Todo REST API written in Go, setup using docker & docker-compose.
 
