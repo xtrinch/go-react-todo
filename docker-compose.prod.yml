@@ -1,6 +1,8 @@
 version: '2'
 
 services:
-    server:
-        build: ./server
-        dockerfile: ./server/Dockerfile.prod
+    nginx:
+        build: ./go-react-todo
+        environment:
+            - NGINX_HOST=foobar.com
+            - NGINX_PORT=80

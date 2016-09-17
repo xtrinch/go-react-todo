@@ -5,19 +5,19 @@ services:
         environment:
             - POSTGRES_PASSWORD=postgres
     server:
-        build: ./server
+        build: ./go-react-todo/server
         command: gin
         volumes:
-            - ./server:/go/src/app
+            - ./go-react-todo/server:/go/src/app
         ports:
             - "8080:3000"
         environment:
             - POSTGRES_PASSWORD=postgres
     client:
-        build: ./client
+        build: ./go-react-todo/client
         command: npm start
         volumes:
-            - ./client:/usr/src/app
+            - ./go-react-todo/client:/usr/src/app
             # mount node_modules as a workaround for it disappearing
             # after adding /client as a mounted folder
             - /usr/src/app/node_modules
