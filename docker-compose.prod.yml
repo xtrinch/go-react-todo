@@ -1,0 +1,15 @@
+version: '2'
+services:
+    postgres:
+        image: postgres
+        environment:
+            - POSTGRES_PASSWORD=postgres
+    server:
+        build: ./server
+        command: ./main
+        volumes:
+            - ./server:/go/src/app
+        ports:
+            - "8080:9000"
+        environment:
+            - POSTGRES_PASSWORD=postgres
