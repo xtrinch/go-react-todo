@@ -8,6 +8,9 @@ services:
         build: ./server
         command: ./main
         ports:
-            - "8080:9000"
+            # by default gin runs on 3001
+            - "8080:3001"
+        depends_on:
+            - "postgres"
         environment:
             - POSTGRES_PASSWORD=postgres
