@@ -8,7 +8,7 @@ services:
         build: ./server
         command: ./main
         ports:
-            - "8080:9000"
+            - "8080:3000"
         depends_on:
             - "postgres"
         environment:
