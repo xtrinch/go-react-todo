@@ -7,8 +7,6 @@ services:
     server:
         build: ./server
         command: ./main
-        volumes:
-            - ./server:/go/src/app
         ports:
             - "8080:9000"
         environment:
