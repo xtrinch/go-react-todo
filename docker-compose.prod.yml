@@ -9,5 +9,7 @@ services:
         command: ./main
         ports:
             - "8080:9000"
+        depends_on:
+            - "postgres"
         environment:
             - POSTGRES_PASSWORD=postgres
