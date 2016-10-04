@@ -6,7 +6,7 @@ services:
             - POSTGRES_PASSWORD=postgres
     server:
         build: ./server
-        command: ./server/main
+        command: ./main
         volumes:
             - ./server:/go/src/app
         ports:
