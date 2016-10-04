@@ -30,7 +30,7 @@ Requests from webpack-dev-server are proxied to the Go container by
 webpack conifig.
 Live reloading is provided by codegangsta/Gin.
 
-## Production setup (run commands in cloned folder):
+## Production setup:
 
 In production livereloading of Go code and a frontend container are not needed. There are now only two containers: postgres database and go backend. A separate docker-compose file is used, as seen below. Run the following scripts in your cloned git directory:
 
