@@ -5,7 +5,7 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 var production = process.env.NODE_ENV === 'production';
 
-var BUILD_DIR = path.resolve(__dirname, 'build');
+var BUILD_DIR = path.resolve(path.dirname(__dirname), 'nginx/build');
 var APP_DIR = path.resolve(__dirname, 'src');
 
 var config = {

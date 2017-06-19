@@ -4,13 +4,16 @@ services:
         image: postgres
         environment:
             - POSTGRES_PASSWORD=postgres
+
     server:
         build: ./server
         command: ./main
-        ports:
-            # by default gin runs on 3001
-            - "8080:3001"
         depends_on:
             - "postgres"
         environment:
             - POSTGRES_PASSWORD=postgres
+    
+    nginx:
+        build: ./nginx
+        ports: 
+            - "8002:80"
