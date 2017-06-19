@@ -11,6 +11,8 @@ HTTP framework used is [gin-gonic/gin](https://github.com/gin-gonic/gin).
 Docker-compose file contains the definition for three containers -
 database (postgres), backend (Go) and frontend (React).
 
+### See it in action: http://go-react-todo.trina.si/
+
 ## Requirements
 
 - docker
