@@ -34,7 +34,8 @@ Live reloading is provided by codegangsta/Gin.
 
 In production livereloading of Go code and a frontend container are not needed. There are now only three containers: postgres database, go backend and a nginx container. A separate docker-compose file is used, as seen below. Run the following scripts in your cloned git directory:
 
-    $ cd client/ && npm run-script build # will create build directory in ../nginx/, where it is then mounted into nginx container to be served as static files
+    # will create build/ directory in ../nginx/, where it is then mounted into nginx container to be served as static files
+    $ cd client/ && npm run-script build 
     $ cd ../ && docker-compose -f docker-compose.prod.yml up -d
 
 You server container will be listening at port 8002 as exposed in docker-compose.prod.yml.
